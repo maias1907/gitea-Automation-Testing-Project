@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class APITestGiteaTest {
 
     private final String owner = "maias";
-    private static String apiToken="85b2df1f242bdc64538737090ebcac13f6729774";
+    private static String apiToken="39ff7ec15e48381ac2dd05e51aacee8bc9e3489f";
     private static final String projectName = "newProjectAPITest";
 
 
