@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -16,13 +17,16 @@ public class APITestGiteaTest {
 
 
 
+
     //echo "GITEA_TOKEN=...." > .env
     //echo "GITEA_TOKEN=${{ secrets.GITEA_TOKEN }}" > .env
 
     @BeforeAll
     public static void setup() {
-        RestAssured.baseURI = "http://localhost:3000/api/v1";
-        RestAssured.port = 3000;
+        String baseURL="https://e968-79-177-145-60.ngrok-free.app";
+        RestAssured.baseURI = baseURL+"/api/v1";
+        //RestAssured.port = 3000;
+
     }
     @Test
     public void testCreateRepo() {
