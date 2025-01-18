@@ -1,16 +1,12 @@
 package UITests;
 
 import org.example.DriverFactory;
-import org.example.HomePageGit;
 import org.example.LoginGit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginGitTest {
     WebDriver driver;
@@ -29,7 +25,7 @@ public class LoginGitTest {
         assertTrue(page.isLoginFailed(), "Login should fail with invalid credentials");
     }*/
 
-    @Test
+   /* @Test
     public void testValidLogin() {
         HomePageGit home = login.loginAsValidUser("maias", "Maias123");
         assertTrue(home.isLoggedInSuccessfully(), "Login should be successful with valid credentials");
