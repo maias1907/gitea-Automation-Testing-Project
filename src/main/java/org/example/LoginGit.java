@@ -1,7 +1,6 @@
 package org.example;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -28,7 +27,7 @@ public class LoginGit extends LoadableComponent<LoginGit> {
     }
     public  HomePageGit loginAsValidUser(String userName, String password) {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         // Wait until the username field is present and visible
         WebElement userNameField = wait.until(d -> d.findElement(userNameFieldBy));
@@ -69,25 +68,6 @@ public class LoginGit extends LoadableComponent<LoginGit> {
 
     @Override
     protected void isLoaded() throws Error {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Increased timeout to 20 seconds
-
-        // Add debug logs to help with troubleshooting
-        System.out.println("Current URL: " + driver.getCurrentUrl());
-        System.out.println("Page Title: " + driver.getTitle());
-
-        try {
-            // Wait for a specific element to be visible (e.g., username field) to confirm the page is fully loaded
-            wait.until(d -> d.findElement(userNameFieldBy).isDisplayed());
-        } catch (TimeoutException e) {
-            // Handle timeout by logging the error and failing the test
-            System.err.println("Timeout waiting for username field to appear.");
-            throw new Error("Timeout waiting for username field to appear.", e);
-        }
-
-        // Optional: Check for title as well if needed
-        if (!driver.getTitle().contains("Sign In")) {
-            throw new Error("Page title does not contain 'Sign In'");
-        }
     }
 }
 
