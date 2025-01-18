@@ -16,11 +16,12 @@ import java.util.List;
 public class HomePageGit extends LoadableComponent<HomePageGit> {
     private WebDriver driver;
     private List<WebElement> elements;
+    private final String baseURL="https://668b-2a06-c701-78d3-4f00-f943-2c4c-636d-e810.ngrok-free.app";
 
     @Override
     protected void load() {
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("http://localhost:3000/");
+        driver.get(baseURL+"/");
         System.out.println(driver.getCurrentUrl());
 
     }

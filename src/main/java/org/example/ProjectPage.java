@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ProjectPage extends LoadableComponent<ProjectPage> {
     private WebDriver driver;
+    private final String baseURL="https://668b-2a06-c701-78d3-4f00-f943-2c4c-636d-e810.ngrok-free.app";
 
     // CSS selector for the "New Project" button
     private By newProjectButtonBy = By.linkText("New Project");
@@ -39,7 +40,7 @@ public class ProjectPage extends LoadableComponent<ProjectPage> {
     @Override
     protected void load() {
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-        driver.get("http://localhost:3000/maias/-/projects");
+        driver.get(baseURL+"/maias/-/projects");
     }
 
     @Override
