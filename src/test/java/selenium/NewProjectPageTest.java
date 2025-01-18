@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
 
+import static org.example.DriverFactory.getDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class NewProjectPageTest {
@@ -18,7 +19,7 @@ public class NewProjectPageTest {
     private NewProjectPage newProjectPage;
     @BeforeEach
     public void setUp() throws MalformedURLException {
-        driver= DriverFactory.getDriver();
+        driver= getDriver();
         driver.manage().window().maximize();
         login = new LoginGit(driver).get();
     }
