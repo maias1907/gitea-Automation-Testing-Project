@@ -1,6 +1,5 @@
 package UITests;
 
-import org.example.DriverFactory;
 import org.example.HomePageGit;
 import org.example.LoginGit;
 import org.junit.jupiter.api.AfterEach;
@@ -10,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
 
+import static org.example.DriverFactory.getDriver;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginGitTest {
@@ -19,7 +19,7 @@ public class LoginGitTest {
 
     @BeforeEach
     public void setUp() throws MalformedURLException {
-        driver= DriverFactory.getDriver();
+        driver= getDriver();
         driver.manage().window().maximize();
         login = new LoginGit(driver).get();
     }
