@@ -5,9 +5,16 @@ import org.example.LoginGit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 import static org.example.DriverFactory.getDriver;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,13 +22,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginGitTest {
     WebDriver driver;
     private LoginGit login;
+    private final String URL="https://e968-79-177-145-60.ngrok-free.app";
 
 
     @BeforeEach
     public void setUp() throws MalformedURLException {
         driver= getDriver();
         driver.manage().window().maximize();
+        driver.get(URL);
+
+        try{
+            Wait<WebDriver> wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement visitButton= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Visit Site']")));
+            visitButton.click();
+        }
+        catch (TimeoutException err){
+            System.out.println("Ngrok warning page was not loaded");
+        }
         login = new LoginGit(driver).get();
+
     }
     @Test
     public void testInvalidLogin() {

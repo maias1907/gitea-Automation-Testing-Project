@@ -3,9 +3,16 @@ package UITests;
 import org.example.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 import static org.example.DriverFactory.getDriver;
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,10 +24,20 @@ public class NewProjectPageTest {
     private HomePageGit home;
     private ProfilePage profile;
     private NewProjectPage newProjectPage;
+    private final String URL="https://e968-79-177-145-60.ngrok-free.app";
     @BeforeEach
     public void setUp() throws MalformedURLException {
         driver= getDriver();
         driver.manage().window().maximize();
+        driver.get(URL);
+        try{
+            Wait<WebDriver> wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement visitButton= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Visit Site']")));
+            visitButton.click();
+        }
+        catch (TimeoutException err){
+            System.out.println("Ngrok warning page was not loaded");
+        }
         login = new LoginGit(driver).get();
     }
     @Test

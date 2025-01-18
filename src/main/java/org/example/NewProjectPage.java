@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
     private WebDriver driver;
-    private final String baseURL="https://668b-2a06-c701-78d3-4f00-f943-2c4c-636d-e810.ngrok-free.app";
+    private final String baseURL="https://e968-79-177-145-60.ngrok-free.app";
 
     // Locators for New Project Fields
     private By titleField = By.id("_aria_auto_id_0");
