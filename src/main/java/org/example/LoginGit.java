@@ -25,22 +25,30 @@ public class LoginGit extends LoadableComponent<LoginGit> {
         PageFactory.initElements(driver,this);
 
     }
+    @Override
+    protected void load() {
+        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(baseURL+"/user/login");
+        System.out.println(driver.getCurrentUrl());
+
+    }
     public  HomePageGit loginAsValidUser(String userName, String password) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
+
         // Wait until the username field is present and visible
         WebElement userNameField = wait.until(d -> d.findElement(userNameFieldBy));
-
+        userNameField.sendKeys(userName);
         // Wait until the password field is present and visible
         WebElement passwordField = wait.until(d -> d.findElement(passwordFieldBy));
-
+        passwordField.sendKeys(password);
         // Wait until the sign-in button is clickable
         WebElement signinButton = wait.until(d -> d.findElement(signinButtonBy));
 
         // Interact with the fields
-        userNameField.sendKeys(userName);
-        passwordField.sendKeys(password);
+
+
         signinButton.click();
 
         return new HomePageGit(driver);
@@ -58,13 +66,7 @@ public class LoginGit extends LoadableComponent<LoginGit> {
         return driver.getTitle().contains("Sign In");
     }*/
 
-    @Override
-    protected void load() {
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(baseURL+"/user/login");
-        System.out.println(driver.getCurrentUrl());
 
-    }
 
     @Override
     protected void isLoaded() throws Error {
