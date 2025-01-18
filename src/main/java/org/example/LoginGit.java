@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginGit extends LoadableComponent<LoginGit> {
     private WebDriver driver;
-
+    private final String baseURL="https://668b-2a06-c701-78d3-4f00-f943-2c4c-636d-e810.ngrok-free.app";
 
     private By userNameFieldBy = By.id("user_name");
     public By passwordFieldBy = By.cssSelector("input[name=\"password\"]");
@@ -20,9 +20,6 @@ public class LoginGit extends LoadableComponent<LoginGit> {
     public LoginGit(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
-
-
-
 
     }
     public  HomePageGit loginAsValidUser(String userName, String password) {
@@ -48,7 +45,7 @@ public class LoginGit extends LoadableComponent<LoginGit> {
     @Override
     protected void load() {
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("http://localhost:3000/user/login");
+        driver.get(baseURL+"/user/login");
         System.out.println(driver.getCurrentUrl());
 
     }
