@@ -1,4 +1,4 @@
-package selenium;
+package UITests;
 
 import org.example.DriverFactory;
 import org.example.HomePageGit;

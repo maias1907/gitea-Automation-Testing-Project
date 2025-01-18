@@ -1,4 +1,4 @@
-package selenium;
+package UITests;
 
 import org.example.*;
 import org.junit.jupiter.api.BeforeEach;

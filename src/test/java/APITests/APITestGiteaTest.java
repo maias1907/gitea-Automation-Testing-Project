@@ -1,4 +1,4 @@
-package selenium;
+package APITests;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
