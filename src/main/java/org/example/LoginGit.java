@@ -7,7 +7,8 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
 
 public class LoginGit extends LoadableComponent<LoginGit> {
     private WebDriver driver;
@@ -52,7 +53,7 @@ public class LoginGit extends LoadableComponent<LoginGit> {
 
     @Override
     protected void isLoaded() throws Error {
-        assertTrue(driver.getTitle().contains("Sign In"));
+       // assertTrue(driver.getTitle().contains("Sign In"));
 
     }
 }

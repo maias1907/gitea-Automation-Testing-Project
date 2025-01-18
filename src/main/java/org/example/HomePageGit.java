@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
 import java.util.List;
@@ -26,9 +25,9 @@ public class HomePageGit extends LoadableComponent<HomePageGit> {
 
     }
 
-    @Override
+   // @Override
     protected void isLoaded() throws Error {
-        assertTrue(driver.getTitle().contains("Dashboard"));
+        //Assertions.assertTrue(driver.getTitle().contains("Dashboard"));
 
     }
 

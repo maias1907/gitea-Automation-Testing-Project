@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.NewProjectPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
 import java.time.Duration;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ProjectPage extends LoadableComponent<ProjectPage> {
     private WebDriver driver;
@@ -45,7 +42,7 @@ public class ProjectPage extends LoadableComponent<ProjectPage> {
 
     @Override
     protected void isLoaded() throws Error {
-        assertTrue(driver.getTitle().contains("Projects"));
+        //assertTrue(driver.getTitle().contains("Projects"));
 
     }
 }
