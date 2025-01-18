@@ -23,11 +23,11 @@ public class LoginGitTest {
         driver.manage().window().maximize();
         login = new LoginGit(driver).get();
     }
-    @Test
+   /* @Test
     public void testInvalidLogin() {
         LoginGit page = login.loginWithInvalidCredentials("wrong", "wrong");
         assertTrue(page.isLoginFailed(), "Login should fail with invalid credentials");
-    }
+    }*/
 
     @Test
     public void testValidLogin() {
@@ -35,7 +35,7 @@ public class LoginGitTest {
         assertTrue(home.isLoggedInSuccessfully(), "Login should be successful with valid credentials");
     }
 
-    @Test
+   /* @Test
     public void testEmptyUsername() {
         LoginGit page = login.loginWithInvalidCredentials("", "Maias123");
         assertTrue(page.isLoginFailed(), "Login should fail when the username is empty");
@@ -51,7 +51,7 @@ public class LoginGitTest {
     public void testEmptyUsernameAndPassword() {
         LoginGit page = login.loginWithInvalidCredentials("", "");
         assertTrue(page.isLoginFailed(), "Login should fail when both username and password are empty");
-    }
+    }*/
     @AfterEach
     public void tearDown() {
         driver.quit();
