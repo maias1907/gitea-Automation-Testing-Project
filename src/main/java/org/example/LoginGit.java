@@ -2,8 +2,10 @@ package org.example;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -25,9 +27,23 @@ public class LoginGit extends LoadableComponent<LoginGit> {
     }
     public  HomePageGit loginAsValidUser(String userName, String password) {
 
-        driver.findElement(userNameFieldBy).sendKeys(userName);
-        driver.findElement(passwordFieldBy).sendKeys(password);
-        driver.findElement(signinButtonBy).click();
+        // WebDriverWait setup with 30 seconds timeout
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        // Pointer for username field
+        WebElement usernameField = wait.until(driver -> driver.findElement(userNameFieldBy));
+        usernameField.sendKeys(userName);
+
+        // Pointer for password field
+        WebElement passwordField = wait.until(driver -> driver.findElement(passwordFieldBy));
+        passwordField.sendKeys(password);
+
+        // Pointer for sign-in button
+        WebElement signInButton = wait.until(driver -> driver.findElement(signinButtonBy));
+        signInButton.click();
+
+        // Return HomePageGit instance
+        //return new HomePageGit(driver);
 
         return new HomePageGit(driver);
     }
