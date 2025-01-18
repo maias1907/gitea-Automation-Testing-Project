@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,7 +28,7 @@ public class HomePageGit extends LoadableComponent<HomePageGit> {
 
    // @Override
     protected void isLoaded() throws Error {
-        //Assertions.assertTrue(driver.getTitle().contains("Dashboard"));
+        Assertions.assertTrue(driver.getTitle().contains("Dashboard"));
 
     }
 

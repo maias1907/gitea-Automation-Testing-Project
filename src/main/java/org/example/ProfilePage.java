@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class ProfilePage extends LoadableComponent<ProfilePage> {
@@ -53,7 +54,7 @@ public class ProfilePage extends LoadableComponent<ProfilePage> {
 
     @Override
     protected void isLoaded() throws Error {
-        //assertTrue(driver.getTitle().contains("maias - Gitea"));
+        assertTrue(driver.getTitle().contains("maias - Gitea"));
 
     }
 }

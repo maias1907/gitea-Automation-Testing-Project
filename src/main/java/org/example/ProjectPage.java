@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class ProjectPage extends LoadableComponent<ProjectPage> {
     private WebDriver driver;
     private final String baseURL="https://668b-2a06-c701-78d3-4f00-f943-2c4c-636d-e810.ngrok-free.app";
@@ -42,7 +44,7 @@ public class ProjectPage extends LoadableComponent<ProjectPage> {
 
     @Override
     protected void isLoaded() throws Error {
-        //assertTrue(driver.getTitle().contains("Projects"));
+        assertTrue(driver.getTitle().contains("Projects"));
 
     }
 }

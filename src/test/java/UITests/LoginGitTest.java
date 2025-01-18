@@ -1,12 +1,16 @@
 package UITests;
 
 import org.example.DriverFactory;
+import org.example.HomePageGit;
 import org.example.LoginGit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginGitTest {
     WebDriver driver;
@@ -19,19 +23,19 @@ public class LoginGitTest {
         driver.manage().window().maximize();
         login = new LoginGit(driver).get();
     }
-   /* @Test
+    @Test
     public void testInvalidLogin() {
         LoginGit page = login.loginWithInvalidCredentials("wrong", "wrong");
         assertTrue(page.isLoginFailed(), "Login should fail with invalid credentials");
-    }*/
+    }
 
-   /* @Test
+    @Test
     public void testValidLogin() {
         HomePageGit home = login.loginAsValidUser("maias", "Maias123");
         assertTrue(home.isLoggedInSuccessfully(), "Login should be successful with valid credentials");
     }
 
-   /* @Test
+    @Test
     public void testEmptyUsername() {
         LoginGit page = login.loginWithInvalidCredentials("", "Maias123");
         assertTrue(page.isLoginFailed(), "Login should fail when the username is empty");
@@ -47,7 +51,7 @@ public class LoginGitTest {
     public void testEmptyUsernameAndPassword() {
         LoginGit page = login.loginWithInvalidCredentials("", "");
         assertTrue(page.isLoginFailed(), "Login should fail when both username and password are empty");
-    }*/
+    }
     @AfterEach
     public void tearDown() {
         driver.quit();

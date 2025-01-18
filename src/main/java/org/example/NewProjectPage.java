@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
@@ -144,7 +145,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
     @Override
     protected void isLoaded() throws Error {
 
-        //assertTrue(driver.getTitle().contains("New Project"));
+        assertTrue(driver.getTitle().contains("New Project"));
 
     }
 }
