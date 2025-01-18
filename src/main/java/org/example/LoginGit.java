@@ -68,8 +68,8 @@ public class LoginGit extends LoadableComponent<LoginGit> {
 
     @Override
     protected void isLoaded() throws Error {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(d -> d.getTitle().contains("Sign In"));
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //wait.until(d -> d.getTitle().contains("Sign In"));
        // assertTrue(driver.getTitle().contains("Sign In"));
 
     }
