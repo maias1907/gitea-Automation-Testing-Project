@@ -55,7 +55,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         driver.findElement(descriptionField).sendKeys(description);
     }
 
-   /* public void selectTemplate(String templateName) {
+    public void selectTemplate(String templateName) {
         Actions actions = new Actions(driver);
 
         // Click the dropdown
@@ -65,8 +65,8 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         // Click the option
         WebElement option = driver.findElement(By.xpath("//div[@role='option' and text()='" + templateName + "']"));
         actions.moveToElement(option).click().perform();
-    }*/
-   public void selectTemplate(String templateName) {
+    }
+   /*public void selectTemplate(String templateName) {
        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
        Actions actions = new Actions(driver);
 
@@ -79,7 +79,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
        WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(
                By.xpath("//div[@role='option' and text()='" + templateName + "']")));
        actions.moveToElement(option).click().perform();
-   }
+   }*/
 
 
    /* public void selectCardPreview(String cardPreviewOption) {
