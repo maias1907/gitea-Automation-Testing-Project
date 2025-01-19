@@ -105,7 +105,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
        option.click();
    }*/
     public void selectCardPreview(String cardPreviewOption) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
 
         // Wait for the dropdown to be visible and interactable
         WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ui selection dropdown']")));
