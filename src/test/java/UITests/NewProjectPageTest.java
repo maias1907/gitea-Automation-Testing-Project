@@ -52,7 +52,7 @@ public class NewProjectPageTest {
         newProjectPage.clickCreateProject();
         assertTrue(newProjectPage.isSuccessfulProjectPage());
     }
-   /* @Test  //if we have emty title the project will not create
+   @Test  //if we have emty title the project will not create
     public void testEmptyFields() {
         //the bot pattern
         newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
@@ -62,8 +62,8 @@ public class NewProjectPageTest {
         assertFalse(newProjectPage.isSuccessfulProjectPage());
 
 
-    }*/
-    /*@Test  //if we have emty title the project will not create
+    }
+    @Test  //if we have emty title the project will not create
     public void testTitleOnly() {
         //the bot pattern
         newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
@@ -72,8 +72,8 @@ public class NewProjectPageTest {
         assertTrue(newProjectPage.isSuccessfulProjectPage());
 
 
-    }*/
-  /*  @Test  //if we have emty title the project will not create
+    }
+   @Test  //if we have emty title the project will not create
     public void testCancelButton() {
         newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test 4 Project");
@@ -145,6 +145,6 @@ public class NewProjectPageTest {
         assertTrue(afterAdditionalText.equals("This is a test description.**maias **This not Bold"),"Bold styling was not applied in the description preview.");
         newProjectPage.clickCreateProject();
         assertTrue(newProjectPage.isSuccessfulProjectPage());
-    }*/
+    }
 }
 
