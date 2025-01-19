@@ -93,7 +93,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         actions.moveToElement(option).click().perform();
 
     }*/
-   public void selectCardPreview(String cardPreviewOption) {
+  /* public void selectCardPreview(String cardPreviewOption) {
        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
        // Wait for the dropdown to be visible and interactable
@@ -103,7 +103,26 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
        // Wait for the specific option to be visible and interactable
        WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']")));
        option.click();
-   }
+   }*/
+    public void selectCardPreview(String cardPreviewOption) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // Wait for the dropdown to be visible and interactable
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ui selection dropdown']")));
+        dropdown.click();
+
+        // Introducing a temporary sleep here for debugging purposes
+        try {
+            Thread.sleep(1000); // sleep for 1 second
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Wait for the specific option to be visible and interactable
+        WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']")));
+        option.click();
+    }
+
 
 
 
