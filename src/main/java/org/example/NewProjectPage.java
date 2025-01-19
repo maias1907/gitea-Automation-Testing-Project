@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -68,7 +69,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
 
 
 
-    public void selectCardPreview(String cardPreviewOption) {
+   /* public void selectCardPreview(String cardPreviewOption) {
 
         Actions actions=new Actions(driver);
 
@@ -78,7 +79,19 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         WebElement option=driver.findElement(By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']"));
         actions.moveToElement(option).click().perform();
 
-    }
+    }*/
+   public void selectCardPreview(String cardPreviewOption) {
+       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+       // Wait for the dropdown to be visible and interactable
+       WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ui selection dropdown']")));
+       dropdown.click();
+
+       // Wait for the specific option to be visible and interactable
+       WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']")));
+       option.click();
+   }
+
 
 
 
