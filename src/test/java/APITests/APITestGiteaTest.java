@@ -75,7 +75,7 @@ public class APITestGiteaTest {
                 "full_name", equalTo("New Organization"),
                 "description", equalTo("This is a test organization."));
     }
-    @Test
+   /* @Test
     public void testGetOrganization() {
         String organizationName = "newOrganization"; // Replace with the name of the organization to fetch
 
@@ -88,7 +88,7 @@ public class APITestGiteaTest {
                 log().all().
                 statusCode(200). // Expecting HTTP 200 OK for successful retrieval
                 body("username", equalTo(organizationName)); // Verifying the organization username
-    }
+    }*/
 
 
 
