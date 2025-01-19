@@ -24,26 +24,27 @@ public class NewProjectPageTest {
     private HomePageGit home;
     private ProfilePage profile;
     private NewProjectPage newProjectPage;
-    private final String URL="https://e968-79-177-145-60.ngrok-free.app";
+    private final String URL = "https://e968-79-177-145-60.ngrok-free.app";
+
     @BeforeEach
     public void setUp() throws MalformedURLException {
-        driver= getDriver();
+        driver = getDriver();
         driver.manage().window().maximize();
         driver.get(URL);
-        try{
-            Wait<WebDriver> wait=new WebDriverWait(driver, Duration.ofSeconds(5));
-            WebElement visitButton= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Visit Site']")));
+        try {
+            Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement visitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Visit Site']")));
             visitButton.click();
-        }
-        catch (TimeoutException err){
+        } catch (TimeoutException err) {
             System.out.println("Ngrok warning page was not loaded");
         }
         login = new LoginGit(driver).get();
     }
-   @Test
+
+    @Test
     public void testCreateProject() {
-       //the bot pattern
-        newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
+        //the bot pattern
+        newProjectPage = login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test1 Project");
         newProjectPage.enterDescription("This is a test project description.");
         newProjectPage.selectTemplate("None");
@@ -68,7 +69,7 @@ public class NewProjectPageTest {
         newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test 3 Project");
         newProjectPage.clickCreateProject();
-        assertTrue(newProjectPage.isSuccessfulProjectPage());*/
+        assertTrue(newProjectPage.isSuccessfulProjectPage());
 
 
     }
@@ -145,5 +146,5 @@ public class NewProjectPageTest {
         newProjectPage.clickCreateProject();
         assertTrue(newProjectPage.isSuccessfulProjectPage());
     }*/
-
 }
+
