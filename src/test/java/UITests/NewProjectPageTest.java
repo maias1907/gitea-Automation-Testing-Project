@@ -40,7 +40,7 @@ public class NewProjectPageTest {
         }
         login = new LoginGit(driver).get();
     }
-  /*  @Test
+   @Test
     public void testCreateProject() {
        //the bot pattern
         newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
@@ -51,7 +51,7 @@ public class NewProjectPageTest {
         newProjectPage.clickCreateProject();
         assertTrue(newProjectPage.isSuccessfulProjectPage());
     }
-    @Test  //if we have emty title the project will not create
+   /* @Test  //if we have emty title the project will not create
     public void testEmptyFields() {
         //the bot pattern
         newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
