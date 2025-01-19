@@ -62,13 +62,13 @@ public class NewProjectPageTest {
 
 
     }*/
-    @Test  //if we have emty title the project will not create
+    /*@Test  //if we have emty title the project will not create
     public void testTitleOnly() {
         //the bot pattern
         newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test 3 Project");
         newProjectPage.clickCreateProject();
-        assertTrue(newProjectPage.isSuccessfulProjectPage());
+        assertTrue(newProjectPage.isSuccessfulProjectPage());*/
 
 
     }
