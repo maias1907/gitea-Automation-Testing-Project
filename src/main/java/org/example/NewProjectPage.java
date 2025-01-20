@@ -82,7 +82,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
    }*/
 
 
-   /* public void selectCardPreview(String cardPreviewOption) {
+    public void selectCardPreview(String cardPreviewOption) {
 
         Actions actions=new Actions(driver);
 
@@ -92,7 +92,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         WebElement option=driver.findElement(By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']"));
         actions.moveToElement(option).click().perform();
 
-    }*/
+    }
   /* public void selectCardPreview(String cardPreviewOption) {
        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -104,24 +104,18 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
        WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']")));
        option.click();
    }*/
-    public void selectCardPreview(String cardPreviewOption) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+   /*public void selectCardPreview(String cardPreviewOption) {
+       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        // Wait for the dropdown to be visible and interactable
-        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='combobox' and contains(@class, 'dropdown')]")));
-        dropdown.click();
+       // Click the dropdown
+       WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='combobox' and contains(@class, 'dropdown')]")));
+       dropdown.click();
 
-        // Introducing a temporary sleep here for debugging purposes
-        try {
-            Thread.sleep(1000); // sleep for 1 second
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        // Wait for the specific option to be visible and interactable
-        WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']")));
-        option.click();
-    }
+       // Select the card preview option
+       WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(
+               By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']")));
+       option.click();
+    }*/
 
 
 
