@@ -47,7 +47,7 @@ public class LoginGit extends LoadableComponent<LoginGit> {
     @Override
     protected void load() {
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(baseURL1+"/user/login");
+        driver.get(baseURL+"/user/login");
         System.out.println(driver.getCurrentUrl());
 
     }

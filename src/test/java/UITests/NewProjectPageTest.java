@@ -22,7 +22,6 @@ public class NewProjectPageTest {
     private ProjectPage projectPage;
     private LoginGit login;
     private HomePageGit home;
-
     private ProfilePage profile;
     private NewProjectPage newProjectPage;
     private final String URL = "https://e968-79-177-145-60.ngrok-free.app";
