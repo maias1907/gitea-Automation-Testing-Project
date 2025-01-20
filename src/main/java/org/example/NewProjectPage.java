@@ -108,7 +108,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
 
         // Wait for the dropdown to be visible and interactable
-        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ui selection dropdown']")));
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='combobox' and contains(@class, 'dropdown')]")));
         dropdown.click();
 
         // Introducing a temporary sleep here for debugging purposes
