@@ -100,6 +100,25 @@ mvn test -Dtest=LoginGitTest#testInvalidLogin,LoginGitTest#testTitleOnly
 ### Viewing Test Results:
 
 After executing the tests, Maven will output results in the console, and detailed reports can be found in the target directory in the form of surefire-reports.
+# Running Tests Remotely (Using GitHub Actions with Ngrok)
+In addition to running tests locally or on a CI platform, you can use ngrok to create a temporary public URL for your local server, enabling you to run tests remotely against your local environment.
+
+## Setting up Ngrok:
+
+- **Install Ngrok** : If you don't have ngrok installed yet, you can download it from ngrok's website. Once installed, you can run it from the command line.
+
+- **Start Your Local Server**: Ensure your local application (in this case, Gitea) is running on a port, for example, port 3000.
+
+- **Expose Your Local Server**: Run ngrok to expose your local server to the internet. In this example, we will expose port 3000:
+``` bash
+ngrok http 3000
+```
+After running the above command, ngrok will provide a public URL that tunnels to your local Gitea instance. It will look something like this:
+``` bash
+Forwarding   http://abcd1234.ngrok.io -> http://localhost:3000
+```
+You can use the http://abcd1234.ngrok.io URL to access your local Gitea instance remotely.
+
 
 ## Running Tests Remotely (Using GitHub Actions)
 GitHub Actions provides a Continuous Integration (CI) workflow to automatically run the tests on every commit or pull request. You can trigger the tests remotely in GitHub Actions.
@@ -108,50 +127,123 @@ GitHub Actions provides a Continuous Integration (CI) workflow to automatically 
 
 In your repository, navigate to the .github/workflows directory.
 Create a new YAML file for the test workflow, for example, test.yml:
+## UI Tests
 
 ``` yaml
-name: Run Automation Tests
+name: UI testing
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      grid_url:
+        required: true
+        type: string
+        description: Grid to run tests on (local by default)
+        default: http://localhost:4444
+
+      chrome_131_0:
+        description: 'Chrome (131.0)'
+        required: false
+        type: boolean
+
+      firefox_133_0:
+        description: 'Firefox (133.0)'
+        required: false
+        type: boolean
 
 jobs:
-  test:
+  TestChrome_131_0:
+    name: Test Chrome 131.0
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.inputs.chrome_131_0 == 'true' }}
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
+      - name: Set up JDK 23
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '23'
 
-    - name: Set up Maven
-      uses: actions/setup-maven@v2
-      with:
-        maven-version: '3.8.1'
+      - name: Launch standalone grid - Chrome
+        if: ${{ contains(github.event.inputs.grid_url, 'localhost') }}
+        run: |
+          docker run --name grid_container -d -p 4444:4444 --shm-size=2gb selenium/standalone-chrome:131.0-chromedriver-131.0-grid-4.27.0-20250101
 
-    - name: Install dependencies
-      run: mvn install
+      - name: Run Tests
+        run: |
+          export BROWSER=chrome
+          export GRID_URL=${{ github.event.inputs.grid_url }}
 
-    - name: Run tests
-      run: mvn test
+          mvn test -Dtest=**/UITests/*
 
-    - name: Upload test results
-      if: failure()
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: target/surefire-reports
+          # Tear down grid if exists
+          docker stop grid_container || true
+
+  TestFirefox_133_0:
+    name: Test Firefox 133.0
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.firefox_133_0 == 'true' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 23
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+
+      - name: Launch standalone grid - Firefox
+        if: ${{ contains(github.event.inputs.grid_url, 'localhost') }}
+        run: |
+          docker run --name grid_container -d -p 4444:4444 --shm-size=2gb selenium/standalone-firefox:133.0-geckodriver-0.35-grid-4.27.0-20250101
+
+      - name: Run Tests
+        run: |
+          export BROWSER=firefox
+          export GRID_URL=${{ github.event.inputs.grid_url }}
+
+          mvn test -Dtest=**/UITests/*
+
+          # Tear down grid if exists
+          docker stop grid_container || true
+
 
 ```
+## API Tests 
+``` yaml 
+name: API testing
+
+on:
+  workflow_dispatch:
+
+jobs:
+  api-tests:
+    name: Run API Tests
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up JDK 19
+      - name: Set up JDK 23
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+
+
+      # Step 4: Run API Tests
+      - name: Run API Tests
+
+        run: |
+          mvn -q clean test -Dtest=**/APITests/*
+
+```
+
 ### This configuration ensures the following:
 
 -The tests will run whenever there is a push to the main branch or a pull request is made against it.
