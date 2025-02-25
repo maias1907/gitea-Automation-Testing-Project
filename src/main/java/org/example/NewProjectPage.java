@@ -30,11 +30,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
     // Locators for Description Buttons
      private By boldButton = By.cssSelector("md-bold.markdown-toolbar-button[aria-label='Add bold text']");
      private By numberProjects=By.cssSelector("div.ui.small.label");
-    /*private By italicButton = By.cssSelector("button[aria-label='Italic']");
-    private By addTableButton = By.cssSelector("button[aria-label='Insert Table']");
-    private By addLinkButton = By.cssSelector("button[aria-label='Insert Link']");
-    private By heading1Button = By.cssSelector("button[aria-label='Heading 1']");
-    private By previewTab = By.cssSelector("button[aria-label='Preview']");*/
+
 
     // Constructor
     public NewProjectPage(WebDriver driver) {
@@ -66,20 +62,6 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         WebElement option = driver.findElement(By.xpath("//div[@role='option' and text()='" + templateName + "']"));
         actions.moveToElement(option).click().perform();
     }
-   /*public void selectTemplate(String templateName) {
-       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-       Actions actions = new Actions(driver);
-
-       // Wait for the dropdown to be clickable and click it
-       WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(
-               By.xpath("//div[@class='ui selection dropdown']")));
-       actions.moveToElement(dropdown).click().perform();
-
-       // Wait for the option to be visible and click it
-       WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(
-               By.xpath("//div[@role='option' and text()='" + templateName + "']")));
-       actions.moveToElement(option).click().perform();
-   }*/
 
 
     public void selectCardPreview(String cardPreviewOption) {
@@ -93,33 +75,6 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         actions.moveToElement(option).click().perform();
 
     }
-  /* public void selectCardPreview(String cardPreviewOption) {
-       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-       // Wait for the dropdown to be visible and interactable
-       WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ui selection dropdown']")));
-       dropdown.click();
-
-       // Wait for the specific option to be visible and interactable
-       WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']")));
-       option.click();
-   }*/
-   /*public void selectCardPreview(String cardPreviewOption) {
-       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-       // Click the dropdown
-       WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='combobox' and contains(@class, 'dropdown')]")));
-       dropdown.click();
-
-       // Select the card preview option
-       WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(
-               By.xpath("//div[@role='option' and text()='" + cardPreviewOption + "']")));
-       option.click();
-    }*/
-
-
-
-
 
     public void clickCreateProject() {
         driver.findElement(createProjectButton).click();
@@ -134,25 +89,7 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
         driver.findElement(boldButton).click();
     }
 
-    /* public void clickItalicButton() {
-        driver.findElement(italicButton).click();
-    }
 
-    public void clickAddTableButton() {
-        driver.findElement(addTableButton).click();
-    }
-
-    public void clickAddLinkButton() {
-        driver.findElement(addLinkButton).click();
-    }
-
-    public void clickHeading1Button() {
-        driver.findElement(heading1Button).click();
-    }
-
-    public void clickPreviewTab() {
-        driver.findElement(previewTab).click();
-    }*/
 
     // Getter for Description Content
     public String getDescriptionContent() {
@@ -162,9 +99,13 @@ public class NewProjectPage  extends LoadableComponent<NewProjectPage> {
     }
     public int getNumberOfProjects(){
         WebElement numberElement = driver.findElement(numberProjects);
-        String numberText = numberElement.getText();
-        int number = Integer.parseInt(numberText);
-        return number;
+
+
+
+            String numberText = numberElement.getText();
+            int number = Integer.parseInt(numberText);
+            return number;
+
 
     }
 

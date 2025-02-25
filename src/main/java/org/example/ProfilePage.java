@@ -33,7 +33,7 @@ public class ProfilePage extends LoadableComponent<ProfilePage> {
 
         // Wait until at least one project link is visible (lambda function for custom condition)
         List<WebElement> projectLinks = wait.until(driver -> driver.findElements(projectLinksBy));
-
+        System.out.println(projectLinks);
         // Select and click on the first available project link (or you can choose any specific link)
         if (!projectLinks.isEmpty()) {
             WebElement SecondProjectLink = projectLinks.get(0); // Choose based on index (0 for the first link)
