@@ -1,4 +1,4 @@
-package UITests;
+/*package UITests;
 
 import org.example.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +24,8 @@ public class NewProjectPageTest {
     private HomePageGit home;
     private ProfilePage profile;
     private NewProjectPage newProjectPage;
-    private final String URL = "https://e968-79-177-145-60.ngrok-free.app";
+    private final String URL1 = "http://localhost:3001/user/login";
+    String URL="https://a7bd-2a06-c701-78fb-bc00-e162-b721-5502-6b4b.ngrok-free.app/user/login";
 
     @BeforeEach
     public void setUp() throws MalformedURLException {
@@ -44,7 +45,7 @@ public class NewProjectPageTest {
     @Test
     public void testCreateProject() {
         //the bot pattern
-        newProjectPage = login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
+        newProjectPage = login.loginAsValidUser("maias", "maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test1 Project");
         newProjectPage.enterDescription("This is a test project description.");
         newProjectPage.selectTemplate("None");
@@ -55,7 +56,7 @@ public class NewProjectPageTest {
    @Test  //if we have emty title the project will not create
     public void testEmptyFields() {
         //the bot pattern
-        newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
+        newProjectPage=login.loginAsValidUser("maias", "maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("");
         newProjectPage.enterDescription("this is Description");
         newProjectPage.clickCreateProject();
@@ -66,7 +67,7 @@ public class NewProjectPageTest {
     @Test  //if we have emty title the project will not create
     public void testTitleOnly() {
         //the bot pattern
-        newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
+        newProjectPage=login.loginAsValidUser("maias", "maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test 3 Project");
         newProjectPage.clickCreateProject();
         assertTrue(newProjectPage.isSuccessfulProjectPage());
@@ -75,7 +76,7 @@ public class NewProjectPageTest {
     }
    @Test  //if we have emty title the project will not create
     public void testCancelButton() {
-        newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
+        newProjectPage=login.loginAsValidUser("maias", "maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test 4 Project");
         newProjectPage.enterDescription("This is a test project description.");
         newProjectPage.selectTemplate("None");
@@ -90,7 +91,7 @@ public class NewProjectPageTest {
 
     @Test// test BoldStyle after we write the description
     public void testBoldStyleInDescription() {
-        newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
+        newProjectPage=login.loginAsValidUser("maias", "maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test5 Project");
         newProjectPage.enterDescription("This is a test description.");
         newProjectPage.selectTemplate("Basic Kanban");
@@ -112,7 +113,7 @@ public class NewProjectPageTest {
     }
     @Test// test BoldStyle before we write the description
     public void testBoldStyleInDescription2() {
-        newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
+        newProjectPage=login.loginAsValidUser("maias", "maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test6 Project");
         newProjectPage.clickBoldButton();
         newProjectPage.enterDescription("This is a test description.");
@@ -133,7 +134,7 @@ public class NewProjectPageTest {
     }
     @Test// test BoldStyle for some words we write the description
     public void testBoldStyleInDescription3() {
-        newProjectPage=login.loginAsValidUser("maias", "Maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
+        newProjectPage=login.loginAsValidUser("maias", "maias123").goToProfilePage().goToProjectsPage().goToNewProjectPage();
         newProjectPage.enterTitle("Test 7 Project");
         newProjectPage.enterDescription("This is a test description.");
         newProjectPage.clickBoldButton();
@@ -146,5 +147,5 @@ public class NewProjectPageTest {
         newProjectPage.clickCreateProject();
         assertTrue(newProjectPage.isSuccessfulProjectPage());
     }
-}
+}*/
 

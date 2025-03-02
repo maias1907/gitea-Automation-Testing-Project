@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import java.net.URL;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -15,13 +17,16 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class APITestGiteaTest {
 
     private static final String owner = "maias";
-    private static final String apiToken = "39ff7ec15e48381ac2dd05e51aacee8bc9e3489f";
+    private static final String apiToken = "c8a457697a30f6ddca2e551d061343a898dc0dac";
     private static final String projectName = "newRepoAPITest";
 
     @BeforeAll
     public static void setup() {
-        String baseURL = "https://e968-79-177-145-60.ngrok-free.app";
-        RestAssured.baseURI = baseURL + "/api/v1";
+        String baseURL1 = "http://localhost:3001";
+        String dbUrl ="https://thin-zoos-ask.loca.lt";
+        String baseURL="https://a7bd-2a06-c701-78fb-bc00-e162-b721-5502-6b4b.ngrok-free.app";
+        RestAssured.baseURI =dbUrl + "/api/v1";
+        //System.out.println(dbUrl);
     }
 
     @Test
@@ -39,6 +44,7 @@ public class APITestGiteaTest {
                 .statusCode(201)
                 .body("name", equalTo(projectName))
                 .body("private", equalTo(false));
+
     }
 
     @Test

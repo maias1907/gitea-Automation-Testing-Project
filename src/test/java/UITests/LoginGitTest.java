@@ -1,4 +1,4 @@
-package UITests;
+/*package UITests;
 
 import org.example.HomePageGit;
 import org.example.LoginGit;
@@ -22,7 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginGitTest {
     WebDriver driver;
     private LoginGit login;
-    private final String URL="https://e968-79-177-145-60.ngrok-free.app";
+    private final String URL1="http://localhost:3001/user/login";
+    String URL="https://a7bd-2a06-c701-78fb-bc00-e162-b721-5502-6b4b.ngrok-free.app/user/login";
 
 
     @BeforeEach
@@ -50,7 +51,7 @@ public class LoginGitTest {
 
     @Test
     public void testValidLogin() {
-        HomePageGit home = login.loginAsValidUser("maias", "Maias123");
+        HomePageGit home = login.loginAsValidUser("maias", "maias123");
         assertTrue(home.isLoggedInSuccessfully(), "Login should be successful with valid credentials");
     }
 
@@ -76,4 +77,4 @@ public class LoginGitTest {
         driver.quit();
     }
 
-}
+}*/

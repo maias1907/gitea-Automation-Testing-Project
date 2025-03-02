@@ -12,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ProjectPage extends LoadableComponent<ProjectPage> {
     private WebDriver driver;
-    private final String baseURL="https://e968-79-177-145-60.ngrok-free.app";
+    private final String baseURL="http://localhost:3001/user/login";
+    private static final String baseURL1="https://a7bd-2a06-c701-78fb-bc00-e162-b721-5502-6b4b.ngrok-free.app/user/login";
 
     // CSS selector for the "New Project" button
     private By newProjectButtonBy = By.linkText("New Project");

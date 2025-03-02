@@ -16,7 +16,9 @@ import java.util.List;
 public class HomePageGit extends LoadableComponent<HomePageGit> {
     private WebDriver driver;
     private List<WebElement> elements;
-    private final String baseURL="https://e968-79-177-145-60.ngrok-free.app";
+    private final String baseURL="http://localhost:3001/user/login";
+    String baseURL2="https://a7bd-2a06-c701-78fb-bc00-e162-b721-5502-6b4b.ngrok-free.app/user/login";
+    //String baseURL = System.getenv("URL");
 
     @Override
     protected void load() {

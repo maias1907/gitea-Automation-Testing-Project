@@ -15,7 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ProfilePage extends LoadableComponent<ProfilePage> {
     private WebDriver driver;
-    private final String baseURL="https://e968-79-177-145-60.ngrok-free.app";
+    private final String baseURL="http://localhost:3001/user/login";
+    private static final String baseURL1="https://a7bd-2a06-c701-78fb-bc00-e162-b721-5502-6b4b.ngrok-free.app/user/login";
 
     // Locator for the list of project links
     private By projectLinksBy = By.cssSelector("div.overflow-menu-items a[href='/maias/-/projects']");

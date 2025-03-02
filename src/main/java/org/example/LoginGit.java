@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginGit extends LoadableComponent<LoginGit> {
     private WebDriver driver;
-    private final String baseURL="https://e968-79-177-145-60.ngrok-free.app";
-    private final String baseURL1="http://localhost:3000";
+    private final String baseURL="http://localhost:3001";
+    String baseURL1="https://a7bd-2a06-c701-78fb-bc00-e162-b721-5502-6b4b.ngrok-free.app";
     private By userNameFieldBy = By.cssSelector("input[name=\"user_name\"]");
     public By passwordFieldBy = By.cssSelector("input[name=\"password\"]");
     private By signinButtonBy = By.cssSelector("button.ui.primary.button.tw-w-full");
